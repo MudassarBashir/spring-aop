@@ -1,5 +1,7 @@
 package com.caveofprogramming.spring.aop;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 /**
  * Hello world!
  *
@@ -8,6 +10,11 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com\\caveofprogramming\\spring\\aop\\beans.xml");
+
+        Camera camera = (Camera)context.getBean("camera");
+        camera.snap();
+
+        context.close();
     }
 }
