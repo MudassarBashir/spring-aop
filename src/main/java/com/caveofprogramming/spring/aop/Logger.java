@@ -17,8 +17,13 @@ class.
 public class Logger {
 
     // This defines where in the target we want to 'insert' advice.
-    @Pointcut("execution(void com.caveofprogramming.spring.aop.Camera.snap(..))")
+    @Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.*(..))")
     public void cameraSnap() {
+
+    }
+
+    @Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.snap(String))")
+    public void cameraSnapName() {
 
     }
 
@@ -26,5 +31,10 @@ public class Logger {
     @Before("cameraSnap()")
     public void aboutToTakePhoto() {
         System.out.println("About to take photo...");
+    }
+
+    @Before("cameraSnapName()")
+    public void aboutToTakePhotoWithName() {
+        System.out.println("About to take photo with name...");
     }
 }

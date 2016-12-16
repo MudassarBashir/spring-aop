@@ -15,6 +15,8 @@ public class App
         Camera camera = (Camera)context.getBean("camera");
         camera.snap();
         camera.snap(100);
+        camera.snap("Prague castle");
+        camera.snapNightTime();
 
         context.close();
     }
