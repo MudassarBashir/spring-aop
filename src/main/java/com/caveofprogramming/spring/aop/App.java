@@ -14,6 +14,7 @@ public class App
 
         Camera camera = (Camera)context.getBean("camera");
         camera.snap();
+        camera.snap(100);
 
         context.close();
     }

@@ -16,11 +16,13 @@ class.
 @Component
 public class Logger {
 
-    @Pointcut("execution(void com.caveofprogramming.spring.aop.Camera.snap())")
+    // This defines where in the target we want to 'insert' advice.
+    @Pointcut("execution(void com.caveofprogramming.spring.aop.Camera.snap(..))")
     public void cameraSnap() {
 
     }
 
+    // This defines that we want the advice inserted _before_ the pointcut defined above.
     @Before("cameraSnap()")
     public void aboutToTakePhoto() {
         System.out.println("About to take photo...");
