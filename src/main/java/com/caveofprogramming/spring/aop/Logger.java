@@ -22,6 +22,11 @@ public class Logger {
 
     }
 
+    @Pointcut("execution(* com.caveofprogramming.spring.aop.*.*(..))")
+    public void cameraRelatedAction() {
+
+    }
+
     @Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.snap(String))")
     public void cameraSnapName() {
 
@@ -36,5 +41,10 @@ public class Logger {
     @Before("cameraSnapName()")
     public void aboutToTakePhotoWithName() {
         System.out.println("About to take photo with name...");
+    }
+
+    @Before("cameraRelatedAction()")
+    public void aboutToDoCameraRelatedAction() {
+        System.out.println("About to do something related to cameras...");
     }
 }
