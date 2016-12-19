@@ -1,5 +1,6 @@
 package com.caveofprogramming.spring.aop;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,20 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Camera {
 
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(Logger.class);
+
     public void snap() {
-        System.out.println("SNAP!");
+        log.info("<***> SNAP! <***>");
     }
 
-    public void snap(int exposure) {
-        System.out.println("SNAP! Exposure: " + exposure);
-    }
-
-    public String snap(String name) {
-        System.out.println("SNAP! Name: " + name);
-        return name;
-    }
-
-    public void snapNightTime() {
-        System.out.println("SNAP! Night mode.");
-    }
 }

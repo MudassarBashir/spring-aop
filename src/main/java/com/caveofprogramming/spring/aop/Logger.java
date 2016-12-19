@@ -1,8 +1,10 @@
 package com.caveofprogramming.spring.aop;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,35 +18,22 @@ class.
 @Component
 public class Logger {
 
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(Logger.class);
+
     // This defines where in the target we want to 'insert' advice.
-    @Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.*(..))")
+    @Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.snap())")
     public void cameraSnap() {
-
-    }
-
-    @Pointcut("execution(* *.*(..))")
-    public void cameraRelatedAction() {
-
-    }
-
-    @Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.snap(String))")
-    public void cameraSnapName() {
 
     }
 
     // This defines that we want the advice inserted _before_ the pointcut defined above.
     @Before("cameraSnap()")
-    public void aboutToTakePhoto() {
-        System.out.println("About to take photo...");
+    public void beforeTakingPhoto() {
+        log.info("About to take photo...");
     }
 
-    @Before("cameraSnapName()")
-    public void aboutToTakePhotoWithName() {
-        System.out.println("About to take photo with name...");
-    }
-
-    @Before("cameraRelatedAction()")
-    public void aboutToDoCameraRelatedAction() {
-        System.out.println("About to do something related to cameras...");
+    @After("cameraSnap()")
+    public void afterTakingPhoto() {
+        log.info("Took photo...");
     }
 }

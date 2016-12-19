@@ -1,6 +1,5 @@
 package com.caveofprogramming.spring.aop;
 
-import com.caveofprogramming.spring.camera.accessories.Lens;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -14,14 +13,8 @@ public class App
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com\\caveofprogramming\\spring\\aop\\beans.xml");
 
         Camera camera = (Camera)context.getBean("camera");
-        Lens lens = (Lens)context.getBean("lens");
 
         camera.snap();
-        camera.snap(100);
-        camera.snap("Prague castle");
-        camera.snapNightTime();
-
-        lens.zoom(5);
 
         context.close();
     }
