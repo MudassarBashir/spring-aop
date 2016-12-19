@@ -13,7 +13,7 @@ public class Camera {
 
     public void snap() throws Exception {
         log.info("<***> SNAP! <***>");
-        throw new Exception("Exception message: bye bye.");
+        //throw new Exception("Exception message: bye bye.");
     }
 
 }

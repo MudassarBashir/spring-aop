@@ -1,9 +1,6 @@
 package com.caveofprogramming.spring.aop;
 
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
@@ -35,5 +32,10 @@ public class Logger {
     @After("cameraSnap()")
     public void afterTakingPhoto() {
         log.info("Took photo...");
+    }
+
+    @AfterReturning("cameraSnap()")
+    public void afterReturningFromTakingPhoto() {
+        log.info("After returning advice...");
     }
 }
