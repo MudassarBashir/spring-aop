@@ -9,10 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class Camera {
 
-    private static final org.slf4j.Logger log = LoggerFactory.getLogger(Logger.class);
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(org.slf4j.Logger.class);
 
-    public void snap() {
+    public void snap() throws Exception {
         log.info("<***> SNAP! <***>");
+        throw new Exception("Exception message: bye bye.");
     }
 
 }

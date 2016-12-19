@@ -18,7 +18,7 @@ class.
 @Component
 public class Logger {
 
-    private static final org.slf4j.Logger log = LoggerFactory.getLogger(Logger.class);
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(org.slf4j.Logger.class);
 
     // This defines where in the target we want to 'insert' advice.
     @Pointcut("execution(* com.caveofprogramming.spring.aop.Camera.snap())")
