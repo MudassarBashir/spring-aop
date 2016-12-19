@@ -1,5 +1,6 @@
 package com.caveofprogramming.spring.aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -42,5 +43,16 @@ public class Logger {
     @AfterThrowing("cameraSnap()")
     public void afterThrowingException() {
         log.info("After throwing advice...");
+    }
+
+    @Around("cameraSnap()")
+    public void aroundAdvice(ProceedingJoinPoint p) {
+        log.info("Around advice (before)...");
+        try {
+            p.proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+        log.info("Around advice (after)...");
     }
 }
