@@ -26,16 +26,21 @@ public class Logger {
     // This defines that we want the advice inserted _before_ the pointcut defined above.
     @Before("cameraSnap()")
     public void beforeTakingPhoto() {
-        log.info("About to take photo...");
+        log.info("Before advice...");
     }
 
     @After("cameraSnap()")
     public void afterTakingPhoto() {
-        log.info("Took photo...");
+        log.info("After advice...");
     }
 
     @AfterReturning("cameraSnap()")
     public void afterReturningFromTakingPhoto() {
         log.info("After returning advice...");
+    }
+
+    @AfterThrowing("cameraSnap()")
+    public void afterThrowingException() {
+        log.info("After throwing advice...");
     }
 }
