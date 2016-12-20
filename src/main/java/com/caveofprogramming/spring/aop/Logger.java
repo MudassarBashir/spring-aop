@@ -51,7 +51,7 @@ public class Logger {
         try {
             p.proceed();
         } catch (Throwable throwable) {
-            throwable.printStackTrace();
+            log.info("In around advice.");
         }
         log.info("Around advice (after)...");
     }
