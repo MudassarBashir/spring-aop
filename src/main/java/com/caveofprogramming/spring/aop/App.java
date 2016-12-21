@@ -3,6 +3,8 @@ package com.caveofprogramming.spring.aop;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.awt.*;
+
 /**
  * Hello world!
  *
@@ -18,10 +20,12 @@ public class App
 
         Object obj = context.getBean("camera");
         System.out.println("Class of obj: " + obj.getClass());
-        System.out.println(obj instanceof Camera);
+        System.out.println(obj instanceof ImageryDevice);
+
+        Camera camera = (Camera)context.getBean("camera");
 
         try {
-            //camera.snap();
+            camera.snap();
         } catch (Exception e) {
             System.out.println("Caught exception with message -> " + e.getMessage());
         }
