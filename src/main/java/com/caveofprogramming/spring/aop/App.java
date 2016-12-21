@@ -17,6 +17,7 @@ public class App
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com\\caveofprogramming\\spring\\aop\\beans.xml");
 
         Camera camera = (Camera)context.getBean("camera");
+        log.info("Class of camera: " + camera.getClass());
 
         try {
             camera.snap();

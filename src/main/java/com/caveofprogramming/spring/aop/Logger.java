@@ -29,30 +29,4 @@ public class Logger {
     public void beforeTakingPhoto() {
         log.info("Before advice...");
     }
-
-    @After("cameraSnap()")
-    public void afterTakingPhoto() {
-        log.info("After advice...");
-    }
-
-    @AfterReturning("cameraSnap()")
-    public void afterReturningFromTakingPhoto() {
-        log.info("After returning advice...");
-    }
-
-    @AfterThrowing("cameraSnap()")
-    public void afterThrowingException() {
-        log.info("After throwing advice...");
-    }
-
-    @Around("cameraSnap()")
-    public void aroundAdvice(ProceedingJoinPoint p) {
-        log.info("Around advice (before)...");
-        try {
-            p.proceed();
-        } catch (Throwable throwable) {
-            log.info("In around advice.");
-        }
-        log.info("Around advice (after)...");
-    }
 }
