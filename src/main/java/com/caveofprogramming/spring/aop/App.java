@@ -20,12 +20,12 @@ public class App
 
         Object obj = context.getBean("camera");
         System.out.println("Class of obj: " + obj.getClass());
-        System.out.println(obj instanceof ImageryDevice);
+        System.out.println(obj instanceof Camera);
 
-        Camera camera = (Camera)context.getBean("camera");
+        //Camera camera = (Camera)context.getBean("camera");
 
         try {
-            camera.snap();
+            //camera.snap();
         } catch (Exception e) {
             System.out.println("Caught exception with message -> " + e.getMessage());
         }

@@ -9,7 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Camera implements ImageryDevice {
 
-    private static final org.slf4j.Logger log = LoggerFactory.getLogger(org.slf4j.Logger.class);
+
+    public Camera() {
+        System.out.println("Camera constructor is constructing " + this.getClass());
+    }
 
     public void snap() throws Exception {
         System.out.println("<***> SNAP! <***>");
