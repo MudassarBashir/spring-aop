@@ -22,10 +22,10 @@ public class App
         System.out.println("Class of obj: " + obj.getClass());
         System.out.println(obj instanceof Camera);
 
-        //Camera camera = (Camera)context.getBean("camera");
+        DefaultCamera camera = (DefaultCamera)context.getBean("camera");
 
         try {
-            //camera.snap();
+            camera.snap();
         } catch (Exception e) {
             System.out.println("Caught exception with message -> " + e.getMessage());
         }
